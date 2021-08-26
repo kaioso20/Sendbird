@@ -1,0 +1,148 @@
+swagger: '2.0'
+info:
+  title: 'DoneStreet Project'
+  version: '1.0.0'
+  description: 'Swagger Starter for DoneStreet'
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    in: header
+    name: Authorization
+schemes:
+  - http
+  - https
+responses:
+  UnauthorizedError:
+    description: 'Invalid API Key'
+    schema:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          example: 401
+        error:
+          type: string
+          example: Unauthorized
+        message:
+          type: string
+          example: invalid token
+  InvalidUser:
+    description: 'Invalid Credentials'
+    schema:
+      $ref: '#/definitions/getLogin406'
+  InternalServerError:
+    description: 'Internal Server Error'
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error.
+paths: 
+  /login:
+    get: 
+      tags:
+        - 'DB) Login'
+      summary: Do user login and generate JWT (json web token)
+      operationId: getLogin
+      consumes:
+        - application/json
+      produces:
+        - application/json
+        - application/xml
+      parameters: 
+        - name: documentNumber
+          in: query
+          description: User document number
+          type: string
+          required: true
+        - name: password
+          in: query
+          description: user password
+          type: string
+          required: true
+      responses: 
+        200:
+          description: User Token || Must be inserted in Authorization header
+          schema:
+            $ref: '#/definitions/getLogin200'
+        400:
+          description: Requested field
+          schema:
+            type: object
+            properties:
+              documentNumber:
+                type: string
+                example: 'Document is required'
+              password:
+                type: string
+                example: 'Password is required'
+        406:
+          description: 'Something wrong with document number'
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Invalid Credentials
+        500:
+          $ref: '#/responses/InternalServerError'
+  /userInfos:
+    get: 
+      tags: 
+        - "DB) User"
+      summary: teste
+      operationId: getUser
+      security:
+        - Bearer: []
+      consumes:
+        - application/json
+      produces:
+        - application/json
+        - application/xml
+      responses: 
+        200:
+          description: User informations
+          schema:
+            $ref: '#/definitions/getUserInfo'
+        401: 
+          $ref: '#/responses/UnauthorizedError'
+        404: 
+          description: User doesn't found
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Nothing has found!
+        500:
+          $ref: '#/responses/InternalServerError'
+definitions: 
+  getLogin200:
+    type: object
+    properties:
+      bearerAuthToken:
+          type: string
+          example: Bearer ...
+  getLogin406:
+    type: object
+    properties:
+      message:
+        type: string
+        example: Credenciais inválidas
+  getUserInfo: 
+    type: object
+    properties: 
+      documentNumber: 
+        type: number
+        example: 2
+      password: 
+        type: string
+        example: 12312
+      secret: 
+        type: string
+        example: doneStreetSecret
+externalDocs: 
+  description: Find out more about Swagger
+  url: http://swagger.io
+
