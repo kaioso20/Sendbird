@@ -5,6 +5,7 @@ const { validationJWT } = require('../utils/auth');
 
 const express = require('express');
 const cors = require('cors');
+const { postSendbirdConnection } = require('../controller/sendbirdController');
 
 const app = express();
 app.use(cors());
@@ -18,6 +19,8 @@ swaggerReader(app);
 router.get('/login', getLogin);
 
 router.get('/userInfos', validationJWT, getUser);
+
+router.post('/sendbirdConnection', validationJWT, postSendbirdConnection);
 
 app.use('/', router);
 module.exports = app;

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --coverage --verbose",
     "dev": "nodemon src/index.js",
-    "eslint": "eslint ../DoneStreet --fix"
+    "eslint": "eslint ../Sendbird --fix"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +20,7 @@
     "jest": "^27.0.6",
     "js-yaml": "^3.3.0",
     "jsonwebtoken": "^8.5.1",
+    "sendbird": "^3.0.155",
     "swagger-tools": "^0.10.4",
     "swagger-ui-express": "^4.0.7"
   },

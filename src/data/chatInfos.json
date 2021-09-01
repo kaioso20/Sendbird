@@ -1,0 +1,20 @@
+[
+    {
+        "nome":"Caio Rafael",
+        "isGroupOrPerfil": "perfil",
+        "imgPerfil": "https://img.com.br",
+        "lastMessage": "Então deixa pronta a janta para mim"
+    },
+    {
+        "nome":"Festinha do balaco-baco",
+        "isGroupOrPerfil": "group",
+        "imgPerfil": "https://img.com.br",
+        "lastMessage": "19h?"
+    },
+    {
+        "nome":"Elvira",
+        "isGroupOrPerfil": "perfil",
+        "imgPerfil": "https://img.com.br",
+        "lastMessage": "Miau"
+    }
+]

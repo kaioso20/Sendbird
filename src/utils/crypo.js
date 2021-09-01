@@ -2,9 +2,9 @@ const JWT = require('jsonwebtoken');
 
 const sharedSecret = 'doneStreet';
 
-const jwtEncrypt = ({ userSecret, userDoc }) =>
-  `Bearer ${JWT.sign({ userSecret, userDoc }, sharedSecret, {
-    expiresIn: 3600,
+const jwtEncrypt = ({ userSecret, userDoc, userId, nickname }) =>
+  `Bearer ${JWT.sign({ userSecret, userDoc, userId, nickname }, sharedSecret, {
+    expiresIn: 1200,
   })}`;
 
 const jwtDecrypt = (token = null) => {
@@ -12,10 +12,10 @@ const jwtDecrypt = (token = null) => {
     if (!!!token) throw new Error();
 
     token = token.replace('Bearer ', '');
-    const { userSecret, userDoc } = JWT.decode(token, {});
-    return { userSecret, userDoc };
+    const { userSecret, userDoc, userId, nickname } = JWT.decode(token, {});
+    return { userSecret, userDoc, userId, nickname };
   } catch (error) {
-    return { userSecret: null, userDoc: null };
+    return { userSecret: null, userDoc: null, userId: null, nickname: null };
   }
 };
 

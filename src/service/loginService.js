@@ -14,6 +14,8 @@ module.exports.getLoginServer = ({ documentNumber, password }) => {
 
     return {
       bearerAuthToken: jwtEncrypt({
+        nickname: bankResponse.nickname,
+        userId: bankResponse.userId,
         userSecret: bankResponse.secret,
         userDoc: bankResponse.documentNumber,
       }),

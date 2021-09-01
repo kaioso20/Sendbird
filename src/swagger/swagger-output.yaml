@@ -117,6 +117,24 @@ paths:
                 example: Nothing has found!
         500:
           $ref: '#/responses/InternalServerError'
+  /sendbirdConnection:
+    post:
+      tags: 
+        - "Sendbird"
+      summary: Requisições pertinentes ao SendBird
+      operationId: postSendbirdConnection
+      security:
+        - Bearer: []
+      consumes:
+        - application/json
+      produces:
+        - application/json
+        - application/xml
+      responses: 
+        200:
+          description: User connection with sendbird
+        500:
+          $ref: '#/responses/InternalServerError'
 definitions: 
   getLogin200:
     type: object

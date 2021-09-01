@@ -1,6 +1,6 @@
 [
-    { "documentNumber": 10, "password": "1213" , "secret": "doneStreetSecret" },
-    { "documentNumber": 16, "password": "15682" , "secret": "doneStreetSecret" },
-    { "documentNumber": 17, "password": "1542" , "secret": "doneStreetSecret" },
-    { "documentNumber": 25, "password": "198555", "secret": "doneStreetSecret"  }
+    { "userId": "1", "nickname": "Caio_Rafael", "documentNumber": 10, "password": "1213" , "secret": "doneStreetSecret" },
+    { "userId": "2", "nickname": "Elvira_Augusta", "documentNumber": 16, "password": "15682" , "secret": "doneStreetSecret" },
+    { "userId": "3", "nickname": "Marcos_Mignon", "documentNumber": 17, "password": "1542" , "secret": "doneStreetSecret" },
+    { "userId": "4", "nickname": "Dado_Donabella", "documentNumber": 25, "password": "198555", "secret": "doneStreetSecret" }
 ]

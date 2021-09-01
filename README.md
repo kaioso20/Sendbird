@@ -1,4 +1,4 @@
-# DoneStreet Project - Swagger
+# SendBird Project - Swagger
 
 This project is an development with swagger (v 2.0) to documentation, jest to unitary tests and JWT to authentication. 
 
@@ -16,7 +16,7 @@ After you could be run if have no problems to install.
 npm run dev
 ```
 
-And finished, you will run your project in port:7500 in your localhost.
+And finished, you will run your project in port:8400 in your localhost.
 
 ## Test
 
@@ -30,4 +30,4 @@ Jest will show you the coverage of all the project
 
 ___
 ### Author
-- Caio Rafael# Sendbird
+- Caio Rafael
